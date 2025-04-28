@@ -1,4 +1,3 @@
-import 'package:aiqala/pages/chat_screen.dart';
 import 'package:aiqala/pages/edu_screen.dart';
 import 'package:aiqala/pages/home_screen.dart';
 import 'package:aiqala/pages/profile_screen.dart';
@@ -18,7 +17,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
   final List<Widget> _pages = const [
     HomeScreen(),
     EduScreen(),
-    ChatScreen(),
+    EduScreen(),
+    // ChatScreen(),
     ProfileScreen(),
   ];
 
