@@ -116,55 +116,56 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               // Image Section
                               ClipRRect(
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(16),
-                                  topRight: Radius.circular(16),
-                                ),
-                                child: Image.network(
-                                  'https://avatars.mds.yandex.net/i?id=a6f942ad574011fc3bed4124fe516534_l-12475067-images-thumbs&n=13', // Замените на URL вашего изображения
-                                  height: 200,
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
-                                ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                topRight: Radius.circular(16),
+                              ),
+                              child: Image.network(
+                                'https://avatars.mds.yandex.net/i?id=3ca6ea1c6467a5214c0a5e184b370dae_l-5513171-images-thumbs&n=13', // Замените на URL вашего изображения
+                                height: 200,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
                               ),
                               const Padding(
-                                padding: EdgeInsets.all(16.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Ежедневный челендж",
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black, // Черный текст для контраста
-                                      ),
-                                    ),
-                                    SizedBox(height: 8),
-                                    Text(
-                                      "Один день без пластика",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.black54, // Серый текст для описания
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                                child: CupertinoButton(
-                                  color: CupertinoColors.activeBlue,
-                                  onPressed: () {},
-                                  child: const Text(
-                                    "Принять участие",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                              padding: EdgeInsets.all(16.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                Text(
+                                  "Один день без пластика",
+                                  style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black, // Черный текст для контраста
                                   ),
                                 ),
+                                ],
+                              ),
+                              ),
+                              Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xff003092),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                padding: const EdgeInsets.symmetric(vertical: 14),
+                                elevation: 0,
+                                ),
+                                onPressed: () {},
+                                child: const Center(
+                                child: Text(
+                                  "Принять участие",
+                                  style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  ),
+                                ),
+                                ),
+                              ),
                               ),
                             ],
                           ),
