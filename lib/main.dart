@@ -1,4 +1,5 @@
-import 'package:aiqala/pages/home_page.dart';
+import 'package:aiqala/pages/home_screen.dart';
+import 'package:aiqala/pages/navigation_screen.dart';
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -18,15 +19,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        fontFamily: "avenir"
       ),
       home: FlutterSplashScreen.fadeIn(
         duration: const Duration(seconds: 5),
             backgroundColor: Colors.white,
           onInit: () {
-            debugPrint("On Init");
+            
           },
           onEnd: () {
-            debugPrint("On End");
+          
           },
           childWidget: Center(
             child: SizedBox(
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
               child: Lottie.asset('assets/lottiefiles/onboarding.json'))
             ),
           onAnimationEnd: () => debugPrint("On Fade In End"),
-          nextScreen: const HomePage(),
+          nextScreen: const NavigationScreen(),
         ),
     );
   }
