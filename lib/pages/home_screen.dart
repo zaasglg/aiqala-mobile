@@ -1,4 +1,5 @@
 import 'package:aiqala/pages/camera_screen.dart';
+import 'package:aiqala/pages/iqair_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
@@ -67,7 +68,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           _buildActionButton(
                             icon: IconlyBroken.setting,
                             label: "Настройки",
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const AirQualityScreen()),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -91,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             onTap: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const CameraScreen()),
+                                MaterialPageRoute(builder: (context) => const ObjectDetectorScreen()),
                               );
                             },
                           ),
