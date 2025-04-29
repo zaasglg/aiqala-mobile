@@ -19,15 +19,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        fontFamily: "avenir"
       ),
       home: FlutterSplashScreen.fadeIn(
         duration: const Duration(seconds: 5),
             backgroundColor: Colors.white,
           onInit: () {
-            debugPrint("On Init");
+            
           },
           onEnd: () {
-            debugPrint("On End");
+          
           },
           childWidget: Center(
             child: SizedBox(
