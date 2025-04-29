@@ -29,7 +29,6 @@ class _ChatWithAiScreenState extends State<ChatWithAiScreen> {
       });
 
       try {
-        // Отправка запроса к ChatGPT API
         final response = await http.post(
           Uri.parse("https://api.openai.com/v1/chat/completions"),
           headers: {
