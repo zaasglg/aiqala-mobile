@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:aiqala/pages/auth/login_screen.dart';
+import 'package:aiqala/services/auth_service.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -76,7 +78,9 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     IconButton(
                       icon: const Icon(IconlyBroken.setting, color: Colors.black54),
-                      onPressed: () {},
+                      onPressed: () {
+                        _showSettingsDialog(context);
+                      },
                     ),
                   ],
                 ),
@@ -229,6 +233,102 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  // Settings Dialog
+  void _showSettingsDialog(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) => Container(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              "Баптаулар",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 20),
+            ListTile(
+              leading: const Icon(Icons.person_outline, color: Colors.blue),
+              title: const Text("Профильді өзгерту"),
+              onTap: () {
+                Navigator.pop(context);
+                // Профильді өзгерту функциясы
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.notifications_outlined, color: Colors.blue),
+              title: const Text("Хабарландырулар"),
+              onTap: () {
+                Navigator.pop(context);
+                // Хабарландырулар функциясы
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.language_outlined, color: Colors.blue),
+              title: const Text("Тіл"),
+              trailing: const Text("Қазақша", style: TextStyle(color: Colors.grey)),
+              onTap: () {
+                Navigator.pop(context);
+                // Тіл өзгерту функциясы
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.logout, color: Colors.red),
+              title: const Text("Шығу", style: TextStyle(color: Colors.red)),
+              onTap: () {
+                Navigator.pop(context);
+                _showLogoutConfirmation(context);
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Logout Confirmation Dialog
+  void _showLogoutConfirmation(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Шығу"),
+        content: const Text("Жүйеден шығуды растайсыз ба?"),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("Жоқ"),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+              _logout(context);
+            },
+            child: const Text("Иә", style: TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Logout Function
+  void _logout(BuildContext context) async {
+    final AuthService authService = AuthService();
+    await authService.logout();
+
+    // Navigate to Login Screen and clear the navigation stack
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (context) => const LoginScreen()),
+          (route) => false,
     );
   }
 

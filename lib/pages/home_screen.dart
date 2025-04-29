@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'map_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -75,7 +76,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           _buildActionButton(
                             icon: IconlyBroken.location,
                             label: "Карта",
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const MapScreen()),
+                              );
+                            },
                           ),
                           _buildActionButton(
                             icon: IconlyBroken.camera,
