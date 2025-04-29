@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSCameraUsageDescription</key>
+    <string>Суреттерді талдау үшін камераға рұқсат қажет.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Талдау үшін галереядан сурет таңдауға рұқсат қажет (егер галереядан таңдау мүмкіндігін қоссаңыз).</string>
     <key>MinimumOSVersion</key>
     <string>14.0</string>
     <key>NSLocationWhenInUseUsageDescription</key>
